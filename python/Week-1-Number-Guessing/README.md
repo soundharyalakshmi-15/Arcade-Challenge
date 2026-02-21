@@ -1,5 +1,7 @@
 # Week 1 – Smart Number Guessing Game (Python)
 
+For detailed info check : https://github.com/KernelKlubTCE/Arcade-Challenge/issues/2#issue-3897511368
+
 ## Run the Game
 
 ```bash

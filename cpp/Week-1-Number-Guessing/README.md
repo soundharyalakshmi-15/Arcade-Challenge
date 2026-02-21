@@ -6,6 +6,8 @@
 
 # Week 1 – Smart Number Guessing Game (C++)
 
+For detailed info check : https://github.com/KernelKlubTCE/Arcade-Challenge/issues/2#issue-3897511368
+
 ## Compile and Run Game
 
 ```bash
