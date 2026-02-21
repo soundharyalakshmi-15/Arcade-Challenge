@@ -22,11 +22,21 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Debug directories
+        run: |
+          echo "Listing python structure:"
+          ls -R python
+
       - name: Run Tests
         run: |
           for dir in python/*; do
             if [ -d "$dir/tests" ]; then
               echo "Running tests in $dir"
-              python -m unittest discover -s "$dir/tests"
+              cd "$dir"
+              echo "Current directory"
+              pwd
+              python -m unittest tests/test_*.py
+              cd - >/dev/null
             fi
           done
+
