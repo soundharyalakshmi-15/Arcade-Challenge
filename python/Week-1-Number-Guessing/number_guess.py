@@ -8,6 +8,12 @@ def check_guess(secret: int, guess: int) -> str:
     :param secret: the actual number to guess
     :param guess: the user's guess
     """
+    if secret == guess:
+        return "CORRECT"
+    elif secret < guess:
+        return "HIGH"
+    else:
+        return "LOW"
 
 
 def calculate_score(attempts: int) -> int:
@@ -16,6 +22,14 @@ def calculate_score(attempts: int) -> int:
 
     :param attempts: Number of attempts made by the user
     """
+    if attempts <= 2:
+        return 100
+    elif attempts <= 5:
+        return 70
+    elif attempts <= 8:
+        return 40
+    else:
+        return 10
 
 
 def give_hint(secret: int, guess_history: list) -> str:
@@ -25,6 +39,21 @@ def give_hint(secret: int, guess_history: list) -> str:
     :param secret: the actual number to guess
     :param guess_history: list of previous guesses
     """
+    last = guess_history[-1]
+    diff = abs(secret - last)
+    if diff <= 5:
+        return "Very Close!"
+    if diff <= 10:
+        return "Close!"
+    lower = 1
+    upper = 100
+
+    for i in guess_history:
+        if i < secret and i >= lower:
+            lower = i + 1
+        if i > secret and i <= upper:
+            upper = i - 1
+    return f"Try between {lower} and {upper}"
 
     # -------- CLI PART (DO NOT MODIFY) ---------
 
